@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <p>Home page</p>
+  <div class="about">
+    <p>Shopping List page</p>
   </div>
 </template>
 
