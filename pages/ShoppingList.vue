@@ -1,11 +1,16 @@
 <template>
   <div class="about">
     <p>Shopping List page</p>
-    <input type="text" placeholder="Add ingredient" />
-    <button>Add</button>
+    <IngredientForm />
   </div>
 </template>
 
 <script>
-export default {}
+import IngredientForm from '@/components/IngredientForm'
+
+export default {
+  components: {
+    IngredientForm,
+  },
+}
 </script>

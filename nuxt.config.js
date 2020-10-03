@@ -57,6 +57,17 @@ export default {
     ],
   ],
 
+  firestore: {
+    memoryOnly: false, // default
+    static: false, // default
+    preload: false, // default
+    chunkName: process.env.NODE_ENV !== 'production' ? 'firebase-auth' : '[id]', // default
+    enablePersistence: true,
+    settings: {
+      // Firestore Settings - currently only works in SPA mode
+    },
+  },
+
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
 
