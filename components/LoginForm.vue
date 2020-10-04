@@ -10,6 +10,9 @@
 <script>
 export default {
   name: 'LoginForm',
+  fetch({ store }) {
+    store.commit('setUserLoggedIn')
+  },
   data() {
     return {
       userEmail: '',
@@ -27,11 +30,9 @@ export default {
         alert(e)
       }
 
-      await this.$fireAuth.onAuthStateChanged(function (user) {
+      await this.$fireAuth.onAuthStateChanged((user) => {
         if (user) {
-          console.log('logged in')
-        } else {
-          console.log('not logged in')
+          this.$store.commit('setUserLoggedIn')
         }
       })
     },

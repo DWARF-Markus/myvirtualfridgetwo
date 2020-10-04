@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav v-if="loggedIn">
     <div>
       <nuxt-link :to="'/'">Home</nuxt-link>
     </div>
@@ -10,13 +10,18 @@
       <nuxt-link :to="'/recipes'">Recipes</nuxt-link>
     </div>
     <div>
+      <button @click="handleSignOut">Sign out</button>
+    </div>
+  </nav>
+  <nav v-else>
+    <div>
+      <nuxt-link :to="'/'">Home</nuxt-link>
+    </div>
+    <div>
       <nuxt-link :to="'/login'">Login</nuxt-link>
     </div>
     <div>
       <nuxt-link :to="'/signup'">Sign Up</nuxt-link>
-    </div>
-    <div>
-      <button @click="handleSignOut">Sign out</button>
     </div>
   </nav>
 </template>
@@ -24,12 +29,20 @@
 <script>
 export default {
   name: 'NavBar',
+  fetch({ store }) {
+    store.commit('setUserLoggedOut')
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.state.isUserLoggedIn
+    },
+  },
   methods: {
     handleSignOut() {
       this.$fireAuth
         .signOut()
-        .then(function () {
-          console.log('sign out succes')
+        .then(() => {
+          this.$store.commit('setUserLoggedOut')
         })
         .catch(() => (error) => {
           console.log('error', error)
