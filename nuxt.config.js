@@ -33,14 +33,14 @@ export default {
       '@nuxtjs/firebase',
       {
         config: {
-          apiKey: 'AIzaSyDhK2ljPBd57gXstFwT6KPpiY0HMx8wRdw',
-          authDomain: 'my-virtual-fridge-two.firebaseapp.com',
-          databaseURL: 'https://my-virtual-fridge-two.firebaseio.com',
-          projectId: 'my-virtual-fridge-two',
-          storageBucket: 'my-virtual-fridge-two.appspot.com',
-          messagingSenderId: '1025995564052',
-          appId: '1:1025995564052:web:f52a6baab7797644577301',
-          measurementId: 'G-Z8H2DCP8YH',
+          apiKey: process.env.VUE_APP_API_KEY,
+          authDomain: process.env.VUE_APP_AUTH_DOMAIN,
+          databaseURL: process.env.VUE_APP_DATABASE_URL,
+          projectId: process.env.VUE_APP_PROJECT_ID,
+          storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
+          messagingSenderId: process.env.VUE_APP_MESSAGING_SENDER_ID,
+          appId: process.env.VUE_APP_APP_ID,
+          measurementId: process.env.VUE_APP_MEASUREMENT_ID,
         },
         services: {
           auth: true,
