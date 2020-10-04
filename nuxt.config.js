@@ -29,7 +29,44 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: process.env.VUE_APP_API_KEY,
+          authDomain: process.env.VUE_APP_AUTH_DOMAIN,
+          databaseURL: process.env.VUE_APP_DATABASE_URL,
+          projectId: process.env.VUE_APP_PROJECT_ID,
+          storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
+          messagingSenderId: process.env.VUE_APP_MESSAGING_SENDER_ID,
+          appId: process.env.VUE_APP_APP_ID,
+          measurementId: process.env.VUE_APP_MEASUREMENT_ID,
+        },
+        services: {
+          auth: true,
+          firestore: true,
+          functions: true,
+          storage: true,
+          realtimeDb: true,
+          messaging: true,
+          performance: true,
+          analytics: true,
+          remoteConfig: true,
+        },
+      },
+    ],
   ],
+
+  firestore: {
+    memoryOnly: false, // default
+    static: false, // default
+    preload: false, // default
+    chunkName: process.env.NODE_ENV !== 'production' ? 'firebase-auth' : '[id]', // default
+    enablePersistence: true,
+    settings: {
+      // Firestore Settings - currently only works in SPA mode
+    },
+  },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},

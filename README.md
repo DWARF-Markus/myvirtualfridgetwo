@@ -1,4 +1,4 @@
-# myvirtualfridgetwo
+# My Virtual Fridge 2
 
 ## Build Setup
 
