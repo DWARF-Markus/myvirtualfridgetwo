@@ -1,0 +1,23 @@
+$black: #343434;
+$orange: #e99e13;
+$lightgray: #bebebe;
+$white: #f8f8f8;
+$font: 'Roboto', sans-serif;
+
+@mixin heading-font {
+  font-weight: 600;
+  text-decoration: none;
+  font-family: $font;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: $white;
+}
+
+@mixin primary-btn {
+  background: $white;
+  color: $orange;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  padding: 6px 12px;
+}
